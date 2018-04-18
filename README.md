@@ -9,13 +9,13 @@ They are based on commands from Heroku's
 You can run a script using `psql`'s `-f` option. For example:
 
 ```bash
-$ psql lob_local -f cache_hit_rate.sql
+$ psql lob_local -f sql/cache_hit_rate.sql
 ```
 
 It also works with aliases you have setup with `psql`:
 
 ```bash
-$ psql_lob_prod -f cache_hit_rate.sql
+$ psql_lob_prod -f sql/cache_hit_rate.sql
 ```
 
 ## Scripts
@@ -48,7 +48,7 @@ $ psql_lob_prod -f cache_hit_rate.sql
 #### [`index_size.sql`](sql/index_size.sql) (read permission)
 * **Returns the size of each index in bytes**
 
-### [`table_size.sql`](sql/table_size.sql) (read permission)
+#### [`table_size.sql`](sql/table_size.sql) (read permission)
 * **Returns the size of each table in bytes**
 * Does not include size of the tables' indices
 
