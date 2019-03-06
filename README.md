@@ -20,11 +20,17 @@ $ psql_lob_prod -f sql/cache_hit_rate.sql
 
 ## Scripts
 
+#### [`active_autovacuums.sql`](sql/active_autovacuums.sql) (admin permission)
+* **Returns all running autovacuums operations**
+
+#### [`analyze_stats.sql`](sql/analyze_stats.sql) (read permission)
+* **Returns autovacuum analyze stats for each table**
+
 #### [`bloat.sql`](sql/bloat.sql) (read permission)
 * **Returns the approximate bloat from dead tuples for each table**
 * This bloat can also be index bloat
 
-#### [`buffer_cache_usage.sql`](sql/buffer_cache_usage.sql) (write permission)
+#### [`buffer_cache_usage.sql`](sql/buffer_cache_usage.sql) (admin permission)
 * **Returns the distribution of shared buffers used for each table**
 * Includes the total bytes of a table in shared buffers, the percentage of
   shared buffers a table is using, and the percentage of a table the exists
@@ -59,3 +65,6 @@ $ psql_lob_prod -f sql/cache_hit_rate.sql
 * **Returns indices that are rarely used**
 * Note that sometimes the query optimizer will elect to avoid using indices for
   tables with a very small number of rows because it can be more efficient
+
+#### [`vacuum_stats.sql`](sql/vacuum_stats.sql) (read permission)
+* **Returns autovacuum stats for each table**
