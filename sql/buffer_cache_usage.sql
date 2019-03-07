@@ -8,4 +8,4 @@ SELECT c.relname
  WHERE pg_relation_size(c.oid) > 0
  GROUP BY c.oid, c.relname
  ORDER BY 3 DESC
- LIMIT 20;
+ LIMIT 30;
