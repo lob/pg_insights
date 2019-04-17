@@ -54,6 +54,9 @@ $ psql_lob_prod -f sql/cache_hit_rate.sql
 #### [`index_size.sql`](sql/index_size.sql) (read permission)
 * **Returns the size of each index in bytes**
 
+#### [`table_settings.sql`](sql/table_settings.sql) (read permission)
+* **Returns the table-specific settings of each table.**
+
 #### [`table_size.sql`](sql/table_size.sql) (read permission)
 * **Returns the size of each table in bytes**
 * Does not include size of the tables' indices
