@@ -1,22 +1,30 @@
-# pg_extras
+# pg_insights
 
-This repository contains sql scripts for monitoring Postgres database health.
-They are based on commands from Heroku's
+Convenient SQL for monitoring Postgres database health. This repository is
+inspired by commands from Heroku's
 [pg_extras](https://github.com/heroku/heroku-pg-extras) repository.
 
 ## How to Use
 
+### psql
+
 You can run a script using `psql`'s `-f` option. For example:
 
 ```bash
-$ psql lob_local -f sql/cache_hit_rate.sql
+$ psql postgres -f sql/cache_hit_rate.sql
 ```
 
 It also works with aliases you have setup with `psql`:
 
 ```bash
-$ psql_lob_prod -f sql/cache_hit_rate.sql
+$ alias psql_my_db="psql -h my_db.com -d my_db -U admin"
+$ psql_my_db -f sql/cache_hit_rate.sql
 ```
+
+### Other
+
+You can also copy/paste any of the SQL in the [`sql/`](sql) directory and run
+with the Postgres client of your choice.
 
 ## Scripts
 
@@ -32,6 +40,7 @@ $ psql_lob_prod -f sql/cache_hit_rate.sql
 
 #### [`buffer_cache_usage.sql`](sql/buffer_cache_usage.sql) (admin permission)
 * **Returns the distribution of shared buffers used for each table**
+* *Requires the [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html) extension*
 * Includes the total bytes of a table in shared buffers, the percentage of
   shared buffers a table is using, and the percentage of a table the exists
   in shared buffers
@@ -71,3 +80,7 @@ $ psql_lob_prod -f sql/cache_hit_rate.sql
 
 #### [`vacuum_stats.sql`](sql/vacuum_stats.sql) (read permission)
 * **Returns autovacuum stats for each table**
+
+## Contributing
+
+Pull requests for bug fixes, improvements, or new SQL are always welcome!
