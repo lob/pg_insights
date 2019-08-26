@@ -63,6 +63,9 @@ with the Postgres client of your choice.
 #### [`index_size.sql`](sql/index_size.sql) (read permission)
 * **Returns the size of each index in bytes**
 
+#### [`reset_stats.sql`](sql/reset_stats.sql) (admin permission)
+* **Resets pg_stats statistics tables**
+
 #### [`table_settings.sql`](sql/table_settings.sql) (read permission)
 * **Returns the table-specific settings of each table.**
 
